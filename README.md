@@ -1,54 +1,129 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive weather application built with React, TypeScript, and TailwindCSS that provides current weather information based on location searches.
 
-Currently, two official plugins are available:
+![Weather App Screenshot](public/og-image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Search for weather by city name, postal code, or coordinates
+- Display current weather conditions including:
+  - Temperature (°C and °F)
+  - Feels like temperature
+  - Condition with icon
+  - Wind speed and direction
+  - Humidity and pressure
+  - Visibility and UV index
+  - Air quality information
+- Responsive design that works on all device sizes
+- Error handling with useful feedback
+- Loading states for better user experience
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React**: Frontend library
+- **TypeScript**: Type safety
+- **TailwindCSS**: Styling
+- **shadcn/ui**: UI component library
+- **React Query**: Data fetching and caching
+- **Vite**: Build tool
+- **WeatherAPI.com**: Weather data API
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/weather-app.git
+cd weather-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Create a `.env` file in the root directory (optional - currently using a demo API key):
+
+```
+VITE_WEATHER_API_KEY=your_api_key_here
+```
+
+Note: The application currently uses a demo API key that may have limited requests. For production use, it's recommended to create your own API key at [WeatherAPI.com](https://www.weatherapi.com/).
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to http://localhost:8080
+
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The build outputs will be located in the `dist` directory.
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Usage
+
+1. Enter a location (city name, postal code, or coordinates) in the search bar
+2. Click the search button or press Enter
+3. View the current weather conditions for the searched location
+4. To search for a new location, simply enter a new search term
+
+## Project Structure
+
+```
+weather-app/
+├── public/               # Static assets
+├── src/                  # Source files
+│   ├── components/       # UI components
+│   │   ├── ui/           # shadcn/ui components
+│   │   └── ...           # Custom components
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions and libraries
+│   ├── pages/            # Page components
+│   ├── services/         # API service functions
+│   ├── types/            # TypeScript type definitions
+│   ├── App.tsx           # Main application component
+│   ├── index.css         # Global styles
+│   └── main.tsx          # Application entry point
+└── ...                   # Configuration files
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Weather data provided by [WeatherAPI.com](https://www.weatherapi.com/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Icons from [Lucide](https://lucide.dev/)
